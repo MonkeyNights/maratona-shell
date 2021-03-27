@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="ShellMarin.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:shellmarin="clr-namespace:ShellMarin"
+    BackgroundColor="Black">
+    <TabBar>
+        <Tab Title="Main Page">
+            <shellmarin:MainPage Title="Main Page" />
+        </Tab>
+
+        <Tab Title="TabPage1">
+            <shellmarin:Page1 Title="Page 1" />
+        </Tab>
+
+        <Tab Title="Page 2">
+            <ShellContent ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+    </TabBar>
+
+    <FlyoutItem Title="Flyout 2" />
+</Shell>
