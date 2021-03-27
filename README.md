@@ -36,7 +36,7 @@ Você pode enviar as suas dúvidas [aqui](https://github.com/MonkeyNights/marato
 - Implementação;
 
 ### Live 04
-**Navegação e recursos de Página **
+**Navegação e recursos de Página**
 - O que é;
 - Por que usar; 
 - Implementação;
