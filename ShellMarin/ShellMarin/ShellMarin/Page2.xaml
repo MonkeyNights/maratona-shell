@@ -10,6 +10,7 @@
                 HorizontalOptions="CenterAndExpand"
                 Text="Segunda página!"
                 VerticalOptions="CenterAndExpand" />
+            <Image Source="mask.jpeg" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

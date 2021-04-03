@@ -4,21 +4,108 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shellmarin="clr-namespace:ShellMarin"
-    BackgroundColor="Black">
-    <TabBar>
+    x:Name="shell"
+    BackgroundColor="Transparent">
+
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="Blue">
+            <Label
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="Maratona Shell"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+            <Button Text="Olá mundo" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout BackgroundColor="Pink" HeightRequest="70">
+                <BoxView BackgroundColor="Aquamarine" HeightRequest="2" />
+                <Label
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="Maratona Shell"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+    <!--<Shell.FlyoutBackdrop>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.1" Color="#8A2387" />
+            <GradientStop Offset="0.6" Color="#E94057" />
+            <GradientStop Offset="1.0" Color="#F27121" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackdrop>
+
+    <Shell.FlyoutBackground>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Offset="0.1" Color="#8A2387" />
+            <GradientStop Offset="0.6" Color="#E94057" />
+            <GradientStop Offset="1.0" Color="#F27121" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackground>-->
+
+    <!--<Shell.FlyoutContent>
+        <CollectionView
+            BindingContext="{x:Reference shell}"
+            IsGrouped="true"
+            ItemsSource="{Binding FlyoutItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label
+                            FontAttributes="Italic"
+                            FontSize="30"
+                            Text="{Binding Title}"
+                            TextColor="Black" />
+                        <BoxView BackgroundColor="Fuchsia" HeightRequest="2" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Shell.FlyoutContent>-->
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Offset="0.1" Color="Yellow" />
+                        <GradientStop Offset="1.0" Color="Green" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Label
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Text}"
+                    TextColor="Black" />
+                <Image Source="{Binding Icon}" />
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+
+
+    <FlyoutItem Title="Main Page">
         <Tab Title="Main Page">
             <shellmarin:MainPage Title="Main Page" />
         </Tab>
+    </FlyoutItem>
 
+    <FlyoutItem Title="Page 1">
         <Tab Title="TabPage1">
             <shellmarin:Page1 Title="Page 1" />
         </Tab>
+    </FlyoutItem>
 
+    <FlyoutItem Title="Page 2">
         <Tab Title="Page 2">
             <ShellContent ContentTemplate="{DataTemplate shellmarin:Page2}" />
         </Tab>
-
-    </TabBar>
-
-    <FlyoutItem Title="Flyout 2" />
+    </FlyoutItem>
+    <MenuItem Clicked="MenuItem_Clicked" Text="Apresenta Display" />
 </Shell>

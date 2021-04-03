@@ -5,11 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Primeira Página">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="Fuchsia" VerticalOptions="Center">
+        <StackLayout BackgroundColor="Fuchsia">
             <Label
                 HorizontalOptions="CenterAndExpand"
                 Text="Primeira página"
-                VerticalOptions="CenterAndExpand" />
+                VerticalOptions="Start" />
+            <Image Source="baixados.jpeg" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
