@@ -4,95 +4,80 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shellmarin="clr-namespace:ShellMarin"
-    x:Name="shell"
-    BackgroundColor="Transparent">
+    x:Name="shell">
 
-    <Shell.FlyoutHeader>
-        <StackLayout BackgroundColor="Blue">
-            <Label
-                FontSize="Large"
-                HorizontalTextAlignment="Center"
-                Text="Maratona Shell"
-                TextColor="White"
-                VerticalTextAlignment="Center" />
-            <Button Text="Olá mundo" />
-        </StackLayout>
-    </Shell.FlyoutHeader>
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor" Value="Red" />
+            <Setter Property="Shell.TabBarTitleColor" Value="Green" />
+            <Setter Property="Shell.TabBarUnselectedColor" Value="Yellow" />
+        </Style>
+    </Shell.Resources>
 
-    <Shell.FlyoutFooterTemplate>
-        <DataTemplate>
-            <StackLayout BackgroundColor="Pink" HeightRequest="70">
-                <BoxView BackgroundColor="Aquamarine" HeightRequest="2" />
-                <Label
-                    FontSize="Large"
-                    HorizontalTextAlignment="Center"
-                    Text="Maratona Shell"
-                    TextColor="White"
-                    VerticalTextAlignment="Center" />
-            </StackLayout>
-        </DataTemplate>
-    </Shell.FlyoutFooterTemplate>
+    <TabBar>
+        <Tab Title="Main Page">
+            <shellmarin:MainPage Title="Main Page" />
+            <shellmarin:Page1 Title="Page 1" Shell.TabBarIsVisible="False" />
+        </Tab>
 
-    <!--<Shell.FlyoutBackdrop>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Offset="0.1" Color="#8A2387" />
-            <GradientStop Offset="0.6" Color="#E94057" />
-            <GradientStop Offset="1.0" Color="#F27121" />
-        </LinearGradientBrush>
-    </Shell.FlyoutBackdrop>
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
 
-    <Shell.FlyoutBackground>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Offset="0.1" Color="#8A2387" />
-            <GradientStop Offset="0.6" Color="#E94057" />
-            <GradientStop Offset="1.0" Color="#F27121" />
-        </LinearGradientBrush>
-    </Shell.FlyoutBackground>-->
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
 
-    <!--<Shell.FlyoutContent>
-        <CollectionView
-            BindingContext="{x:Reference shell}"
-            IsGrouped="true"
-            ItemsSource="{Binding FlyoutItems}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Label
-                            FontAttributes="Italic"
-                            FontSize="30"
-                            Text="{Binding Title}"
-                            TextColor="Black" />
-                        <BoxView BackgroundColor="Fuchsia" HeightRequest="2" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </Shell.FlyoutContent>-->
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
 
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <Grid>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="1,0">
-                        <GradientStop Offset="0.1" Color="Yellow" />
-                        <GradientStop Offset="1.0" Color="Green" />
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Label
-                    FontSize="20"
-                    HorizontalTextAlignment="Center"
-                    Text="{Binding Text}"
-                    TextColor="Black" />
-                <Image Source="{Binding Icon}" />
-            </Grid>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
 
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+
+        <Tab Title="Outra Pagina">
+            <ShellContent Title="Page 2" ContentTemplate="{DataTemplate shellmarin:Page2}" />
+        </Tab>
+    </TabBar>
 
 
     <FlyoutItem Title="Main Page">
         <Tab Title="Main Page">
             <shellmarin:MainPage Title="Main Page" />
+            <shellmarin:Page1 Title="Page 1" Shell.TabBarIsVisible="False" />
         </Tab>
     </FlyoutItem>
 
@@ -107,5 +92,4 @@
             <ShellContent ContentTemplate="{DataTemplate shellmarin:Page2}" />
         </Tab>
     </FlyoutItem>
-    <MenuItem Clicked="MenuItem_Clicked" Text="Apresenta Display" />
 </Shell>
