@@ -24,7 +24,7 @@ namespace ShellMarin
 
             RegisterRoute();
 
-            void RegisterRoute()
+            static void RegisterRoute()
             {
                 Routing.RegisterRoute(nameof(Page2ViewModel), typeof(Page2));
                 Routing.RegisterRoute(nameof(MainViewModel), typeof(MainPage));
