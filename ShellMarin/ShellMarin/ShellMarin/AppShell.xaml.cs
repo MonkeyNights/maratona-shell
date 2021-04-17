@@ -1,4 +1,6 @@
-﻿namespace ShellMarin
+﻿using Xamarin.Forms;
+
+namespace ShellMarin
 {
     public partial class AppShell
     {

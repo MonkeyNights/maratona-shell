@@ -7,10 +7,12 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="Fuchsia">
             <Label
+                FontSize="60"
                 HorizontalOptions="CenterAndExpand"
-                Text="Primeira página"
+                Text="{Binding Maratona}"
                 VerticalOptions="Start" />
-            <Image Source="baixados.jpeg" />
+            <Image HeightRequest="140" Source="camarote_nao.jpeg" />
+            <Image HeightRequest="240" Source="camarote_nao_QR.jpeg" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

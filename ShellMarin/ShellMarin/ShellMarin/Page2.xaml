@@ -11,6 +11,8 @@
                 Text="Segunda página!"
                 VerticalOptions="CenterAndExpand" />
             <Image Source="mask.jpeg" />
+
+            <Button Command="{Binding NavigateCommand}" Text="Voltar" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
