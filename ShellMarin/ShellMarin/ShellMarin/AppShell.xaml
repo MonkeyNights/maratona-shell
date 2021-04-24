@@ -6,13 +6,19 @@
     xmlns:shellmarin="clr-namespace:ShellMarin"
     x:Name="shell">
 
-    <TabBar>
+
+
+
+    <!--<FlyoutItem>
         <Tab Title="MainPage" Route="Tab1">
-            <shellmarin:MainPage />
+            <shellmarin:Page2 />
         </Tab>
-        <Tab Title="MainPage2" Route="Tab2">
-            <shellmarin:MainPage />
-        </Tab>
-    </TabBar>
+    </FlyoutItem>-->
+    <Tab Title="MainPage2" Route="Tab2">
+        <shellmarin:MainPage />
+    </Tab>
+    <!--<FlyoutItem>
+
+    </FlyoutItem>-->
 
 </Shell>

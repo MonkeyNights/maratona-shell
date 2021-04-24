@@ -42,4 +42,23 @@
         <Button Command="{Binding NavigateCommand}" Text="Navegar Para algum lugar" />
     </StackLayout>
 
+    <Shell.SearchHandler>
+        <vm:MySearch
+            Data="{x:Static vm:AppShell.DataBase}"
+            DisplayMemberName="Nome"
+            IsSearchEnabled="True"
+            Placeholder="Entre com uma busca"
+            ShowsResults="True"
+            TextColor="Fuchsia">
+
+            <vm:MySearch.ItemTemplate>
+                <DataTemplate>
+                    <Label
+                        FontAttributes="Bold"
+                        Text="{Binding .}"
+                        TextColor="Red" />
+                </DataTemplate>
+            </vm:MySearch.ItemTemplate>
+        </vm:MySearch>
+    </Shell.SearchHandler>
 </ContentPage>

@@ -25,7 +25,7 @@ namespace ShellMarin
         NavigationService()
         {
             Shell.Navigated += OnNavigated;
-            Shell.Navigating += OnNavigating;
+           // Shell.Navigating += OnNavigating;
 
             RegisterRoute();
 
@@ -37,27 +37,27 @@ namespace ShellMarin
             }
         }
 
-        async void OnNavigating(object sender, ShellNavigatingEventArgs e)
-        {
-            var key = (CurrentPage.BindingContext as BaseViewModel).Key;
+        //async void OnNavigating(object sender, ShellNavigatingEventArgs e)
+        //{
+        //    var key = (CurrentPage.BindingContext as BaseViewModel).Key;
 
-            InterceptNavigationActions.TryGetValue(key, out var task);
+        //    InterceptNavigationActions.TryGetValue(key, out var task);
 
-            if (task is { }) // task != null
-            {
-                var deferral = e.GetDeferral();
+        //    if (task is { }) // task != null
+        //    {
+        //        var deferral = e.GetDeferral();
 
-                var result = await task();
+        //        var result = await task();
 
-                if (!result)
-                    e.Cancel();
+        //        if (!result)
+        //            e.Cancel();
 
-                deferral.Complete();
+        //        deferral.Complete();
 
-            }
+        //    }
 
-            isNavigationAllowed = !e.Cancelled;
-        }
+        //    isNavigationAllowed = !e.Cancelled;
+        //}
 
         void OnNavigated(object sender, ShellNavigatedEventArgs e)
         {
