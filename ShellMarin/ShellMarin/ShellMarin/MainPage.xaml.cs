@@ -24,14 +24,40 @@ namespace ShellMarin
 
     sealed class MainViewModel : BaseViewModel
     {
+
+        bool canNavigate;
+
+        public bool CanNavigate
+        {
+            get => canNavigate;
+            set => SetProperty(ref canNavigate, value);
+        }
+
         public MainViewModel()
         {
             NavigateCommand = new Command(NavigateCommandExecute);
+
+            //NavigationService.InterceptNavigationActions[Key] = async () =>
+            //{
+            //    var result = await Application.Current.MainPage.DisplayAlert("Aviso",
+            //        "Quer navegar assim mesmo?", "Sim", "Não");
+
+            //    return result;
+            //};
         }
 
         void NavigateCommandExecute()
         {
             _ = Navigation.GoToAsync(nameof(Page2ViewModel));
+        }
+
+        public override Task BackAsync(params object[] args)
+        {
+            var dic = (Dictionary<int, object>)args[0];
+
+            dic.TryGetValue(0, out var item1);
+            
+            return base.BackAsync(args);
         }
     }
 }

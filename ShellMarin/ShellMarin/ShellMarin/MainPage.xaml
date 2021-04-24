@@ -38,7 +38,7 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-
+        <CheckBox IsChecked="{Binding CanNavigate}" />
         <Button Command="{Binding NavigateCommand}" Text="Navegar Para algum lugar" />
     </StackLayout>
 

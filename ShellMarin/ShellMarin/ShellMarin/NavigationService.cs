@@ -13,9 +13,14 @@ namespace ShellMarin
 
         public static NavigationService Current => navigationLazy.Value;
 
+        bool isNavigationAllowed;
+
         Shell Shell => Shell.Current;
 
         Page CurrentPage => Shell.CurrentPage;
+
+        public static Dictionary<string, Func<Task<bool>>> InterceptNavigationActions { get; } =
+            new Dictionary<string, Func<Task<bool>>>();
 
         NavigationService()
         {
@@ -32,25 +37,51 @@ namespace ShellMarin
             }
         }
 
-        void OnNavigating(object sender, ShellNavigatingEventArgs e)
+        async void OnNavigating(object sender, ShellNavigatingEventArgs e)
         {
+            var key = (CurrentPage.BindingContext as BaseViewModel).Key;
 
+            InterceptNavigationActions.TryGetValue(key, out var task);
+
+            if (task is { }) // task != null
+            {
+                var deferral = e.GetDeferral();
+
+                var result = await task();
+
+                if (!result)
+                    e.Cancel();
+
+                deferral.Complete();
+
+            }
+
+            isNavigationAllowed = !e.Cancelled;
         }
 
         void OnNavigated(object sender, ShellNavigatedEventArgs e)
         {
-         
+            var currentUri = e.Current.Location.OriginalString;
         }
 
         public async Task GoToAsync(string uri, params object[] args)
         {
             await Shell.GoToAsync(uri);
 
+            if (uri.Contains(".."))
+            {
+                await (CurrentPage.BindingContext as BaseViewModel).BackAsync(args).ConfigureAwait(false);
+                return;
+            }
+
             await StartVM(uri, args).ConfigureAwait(false);
         }
 
         ValueTask StartVM(in string uri, object[] args)
         {
+            if (!isNavigationAllowed)
+                return default;
+
             var vm = CreateViewModel(uri);
 
             CurrentPage.BindingContext = vm;

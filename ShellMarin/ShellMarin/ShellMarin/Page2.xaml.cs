@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace ShellMarin
@@ -31,7 +32,15 @@ namespace ShellMarin
                 Id = 20,
                 Name = "Maratona Shell"
             };
-            _ = Navigation.GoToAsync(nameof(Page1ViewModel), "Monkey Nights", item);
+
+            var args = new Dictionary<int, object>
+            {
+                {0 , item },
+                {1 ,  "Monkey Nights"}
+            };
+
+
+            _ = Navigation.GoToAsync("..", args);
         }
     }
 }

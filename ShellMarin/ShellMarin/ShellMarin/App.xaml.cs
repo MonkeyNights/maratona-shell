@@ -11,6 +11,7 @@ namespace ShellMarin
             InitializeComponent();
 
             MainPage = new AppShell();
+            _ = NavigationService.Current;
         }
 
         protected override void OnStart()

@@ -7,7 +7,12 @@
     x:Name="shell">
 
     <TabBar>
-        <shellmarin:MainPage />
+        <Tab Title="MainPage" Route="Tab1">
+            <shellmarin:MainPage />
+        </Tab>
+        <Tab Title="MainPage2" Route="Tab2">
+            <shellmarin:MainPage />
+        </Tab>
     </TabBar>
 
 </Shell>
